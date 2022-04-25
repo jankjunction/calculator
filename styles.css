@@ -4,10 +4,11 @@ html {
 
 *, *:before, *:after {
     box-sizing: inherit;
+    cursor: default;
 }
 
 #calculator {
-    width: 400px;
+    width: 350px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: auto;
@@ -23,11 +24,13 @@ html {
     grid-row-gap: 15px;
     border: 2px solid black;
     border-radius: 8px;
+    background: lightgray;
     margin: auto;
     padding: 15px;
 }
 
 #display, #clear, #delete, .smallbutton {
+    background-color: white;
     font-family: "Saira Condensed";
     font-size: 24px;
     border: 1px solid black;
@@ -44,16 +47,16 @@ html {
     height: 100px;
     align-self: end;
     text-align: right;
+    padding: 10px;
 }
 
 #clear, #delete {
     display: flex;
-    width: 150px;
+    width: 135px;
     height: 50px;
     place-self: center;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
-    margin: auto;
 }
 #clear {
     grid-area: clear;
@@ -76,5 +79,6 @@ html {
 
 .operator {
     background-color: salmon;
+    font-size: 32px;
 }
 
