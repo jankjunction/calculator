@@ -1,8 +1,13 @@
-// add
+// arithmetic functions
 function add(x, y) {return x + y};
-// subtract
 function subtract(x, y) {return x - y;}
-// multiply
 function multiply(x, y) {return x * y;}
-// divide
 function divide(x, y) {return x / y};
+
+// 
+function operate(operator, x, y) {
+    if (operator === '+') {return add(x, y)};
+    if (operator === '-') {return subtract(x, y)};
+    if (operator === '*') {return multiply(x, y)};
+    if (operator === '/') {return divide(x, y)};
+};

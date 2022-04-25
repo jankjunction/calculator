@@ -5,3 +5,76 @@ html {
 *, *:before, *:after {
     box-sizing: inherit;
 }
+
+#calculator {
+    width: 400px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+        "display display display display"
+        "clear  clear delete delete"
+        "small small small small"
+        "small small small small"
+        "small small small small"
+        "small small small small";
+    align-items: center;
+    grid-column-gap: 15px;
+    grid-row-gap: 15px;
+    border: 2px solid black;
+    border-radius: 8px;
+    margin: auto;
+    padding: 15px;
+}
+
+#display, #clear, #delete, .smallbutton {
+    font-family: "Saira Condensed";
+    font-size: 24px;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+#display {
+    font-family: "Saira Condensed";
+    font-size: 36px;
+    grid-area: display;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    margin: 10px;
+    height: 100px;
+    align-self: end;
+    text-align: right;
+}
+
+#clear, #delete {
+    display: flex;
+    width: 150px;
+    height: 50px;
+    place-self: center;
+    justify-content: space-around;
+    align-items: center;
+    margin: auto;
+}
+#clear {
+    grid-area: clear;
+}
+
+#delete {
+    grid-area: delete;
+}
+
+
+.smallbutton {
+    height: 50px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    place-self: center;
+}
+
+.operator {
+    background-color: salmon;
+}
+
