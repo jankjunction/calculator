@@ -67,10 +67,26 @@ clearBtn.addEventListener('click', () => {
 });
 
 // Operators
-divideBtn.addEventListener('click', () => {operator = '/'});
-multiplyBtn.addEventListener('click', () => {operator = '*'});
-subtractBtn.addEventListener('click', () => {operator = '-'});
-addBtn.addEventListener('click', () => {operator = '+'});
+divideBtn.addEventListener('click', () => {
+    if (operator != '') displayText = operate(operator, num1, num2);
+    operator = '/';
+    num1 = displayText;
+    num2 = '';});
+multiplyBtn.addEventListener('click', () => {
+    if (operator != '') displayText = operate(operator, num1, num2);
+    operator = '*';
+    num1 = displayText;
+    num2 = '';});
+subtractBtn.addEventListener('click', () => {
+    if (operator != '') displayText = operate(operator, num1, num2);
+    operator = '-';
+    num1 = displayText;
+    num2 = '';});
+addBtn.addEventListener('click', () => {
+    if (operator != '') displayText = operate(operator, num1, num2);
+    operator = '+';
+    num1 = displayText;
+    num2 = '';});
 
 // Numbers
 seven.addEventListener('click', () => {buttonPress('7')});
@@ -86,8 +102,9 @@ zero.addEventListener('click', () => {buttonPress('0')});
 
 // Equals
 equals.addEventListener('click', () => {
-    displayText = operate(operator,num1,num2);
-
+    displayText = operate(operator,num1,num2)
+    num1 = displayText;
+    num2 = '';
 });
 
 
