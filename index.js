@@ -146,6 +146,7 @@ equals.addEventListener('click', () => {
     num1 = displayText;
     num2 = '';
     operator = '';
+    updateDisplay();
 });
 
 // Decimal
@@ -157,6 +158,7 @@ decimalBtn.addEventListener('click', () => {
     } else {
         buttonPress('.');
     }
+    updateDisplay();
 });
 
 // Delete
@@ -172,7 +174,6 @@ deleteBtn.addEventListener('click', () => {
 });
 
 // Keyboard
-
 document.addEventListener('keydown', function(event) {
     let keyPress = event.key;
     if ('1234567890'.includes(keyPress)) {
@@ -234,6 +235,7 @@ document.addEventListener('keydown', function(event) {
         num1 = displayText;
         num2 = '';
         operator = '';
+        updateDisplay();
     }
 
     if (keyPress === '.') {
@@ -244,6 +246,7 @@ document.addEventListener('keydown', function(event) {
         } else {
             buttonPress('.');
         }
+        updateDisplay();
     }  
 });
 
