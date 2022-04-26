@@ -247,5 +247,10 @@ document.addEventListener('keydown', function(event) {
     }  
 });
 
+// Touch
+document.addEventListener('touchstart', () => {updateDisplay()});
+document.addEventListener('touchend', () => {updateDisplay()});
+document.addEventListener('touchmove', () => {updateDisplay()});
+
 
 
