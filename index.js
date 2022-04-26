@@ -171,6 +171,81 @@ deleteBtn.addEventListener('click', () => {
     updateDisplay();
 });
 
+// Keyboard
+
+document.addEventListener('keydown', function(event) {
+    let keyPress = event.key;
+    if ('1234567890'.includes(keyPress)) {
+        buttonPress(keyPress);}
+    if (keyPress === '+') {
+        if (operator != '') {
+            displayText = operate(operator, num1, num2);
+            num1 = displayText;
+            num2 = '';
+            operator = '+';
+        } else {
+            operator = '+';
+            num1 = displayText;
+            num2 = '';
+        }
+        updateDisplay();
+    }
+    if (keyPress === '-') {
+        if (operator != '') {
+            displayText = operate(operator, num1, num2);
+            num1 = displayText;
+            num2 = '';
+            operator = '-';
+        } else {
+            operator = '-';
+            num1 = displayText;
+            num2 = '';
+        }
+        updateDisplay();
+    }
+    if (keyPress === '*') {
+        if (operator != '') {
+            displayText = operate(operator, num1, num2);
+            num1 = displayText;
+            num2 = '';
+            operator = '*';
+        } else {
+            operator = '*';
+            num1 = displayText;
+            num2 = '';
+        }
+        updateDisplay();
+    }
+    if (keyPress === '/') {
+        if (operator != '') {
+            displayText = operate(operator, num1, num2);
+            num1 = displayText;
+            num2 = '';
+            operator = '/';
+        } else {
+            operator = '/';
+            num1 = displayText;
+            num2 = '';
+        }
+        updateDisplay();
+    }
+    if (keyPress === '=') {
+        displayText = operate(operator,num1,num2);
+        num1 = displayText;
+        num2 = '';
+        operator = '';
+    }
+
+    if (keyPress === '.') {
+        if (num1.includes('.') && ((num2.includes('.') || operator === ''))) {
+            ;
+        } else if (num1.includes('.') && !(num2.includes('.'))) {
+            buttonPress('.');
+        } else {
+            buttonPress('.');
+        }
+    }  
+});
 
 
 
