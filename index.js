@@ -25,7 +25,6 @@ let operator = '';
 let num1 = '';
 let num2 = '';
 let displayText = '0';
-let runningDisplayText = ''
 
 // arithmetic functions
 function add(x, y) {return +x + +y};
@@ -35,10 +34,10 @@ function divide(x, y) {return x / y};
 
 // 
 function operate(operator, x, y) {
-    if (operator === '+') {return add(x, y)};
-    if (operator === '-') {return subtract(x, y)};
-    if (operator === '*') {return multiply(x, y)};
-    if (operator === '/') {return divide(x, y)};
+    if (operator === '+') {return add(x, y).toString()};
+    if (operator === '-') {return subtract(x, y).toString()};
+    if (operator === '*') {return multiply(x, y).toString()};
+    if (operator === '/') {return divide(x, y).toString()};
 };
 
 function clear() {
@@ -51,42 +50,73 @@ function clear() {
 function buttonPress(string) {
     (operator === '') ? num1 += string : num2 += string;
     (operator === '') ? displayText = num1 : displayText = num2;
-    console.log(num1);
-    console.log(num2);
 }
 
 // Constantly sets the display to the current value of displaytext
-calculator.addEventListener('mouseover', () => {
-    display.textContent = displayText;
+calculator.addEventListener('mousemove', () => {
+    display.textContent = displayText.slice(0, 15);
 });
+
+document.querySelectorAll('.smallbutton').forEach(item => {
+    item.addEventListener('mousemove', event => {
+        display.textContent = displayText.slice(0, 15);
+    })
+  });
 
 // Clears the values
 clearBtn.addEventListener('click', () => {
     clear();
-    console.log('cleared')
 });
 
 // Operators
 divideBtn.addEventListener('click', () => {
-    if (operator != '') displayText = operate(operator, num1, num2);
-    operator = '/';
-    num1 = displayText;
-    num2 = '';});
+    if (operator != '') {
+        displayText = operate(operator, num1, num2);
+        num1 = displayText;
+        num2 = '';
+        operator = '/';
+    } else {
+        operator = '/';
+        num1 = displayText;
+        num2 = '';
+    }
+});
 multiplyBtn.addEventListener('click', () => {
-    if (operator != '') displayText = operate(operator, num1, num2);
-    operator = '*';
-    num1 = displayText;
-    num2 = '';});
+    if (operator != '') {
+        displayText = operate(operator, num1, num2);
+        num1 = displayText;
+        num2 = '';
+        operator = '*';
+    } else {
+        operator = '*';
+        num1 = displayText;
+        num2 = '';
+    }
+});
 subtractBtn.addEventListener('click', () => {
-    if (operator != '') displayText = operate(operator, num1, num2);
-    operator = '-';
-    num1 = displayText;
-    num2 = '';});
+    if (operator != '') {
+        displayText = operate(operator, num1, num2);
+        num1 = displayText;
+        num2 = '';
+        operator = '-';
+    } else {
+        operator = '-';
+        num1 = displayText;
+        num2 = '';
+    }
+});
 addBtn.addEventListener('click', () => {
-    if (operator != '') displayText = operate(operator, num1, num2);
-    operator = '+';
-    num1 = displayText;
-    num2 = '';});
+    if (operator != '') {
+        displayText = operate(operator, num1, num2);
+        num1 = displayText;
+        num2 = '';
+        operator = '+';
+    } else {
+        operator = '+';
+        num1 = displayText;
+        num2 = '';
+    }
+});
 
 // Numbers
 seven.addEventListener('click', () => {buttonPress('7')});
@@ -102,11 +132,23 @@ zero.addEventListener('click', () => {buttonPress('0')});
 
 // Equals
 equals.addEventListener('click', () => {
-    displayText = operate(operator,num1,num2)
+    displayText = operate(operator,num1,num2);
     num1 = displayText;
     num2 = '';
+    operator = '';
 });
 
+// Decimal
+
+decimalBtn.addEventListener('click', () => {
+    if (num1.includes('.') && ((num2.includes('.') || operator === ''))) {
+        ;
+    } else if (num1.includes('.') && !(num2.includes('.'))) {
+        buttonPress('.');
+    } else {
+        buttonPress('.');
+    }
+});
 
 
 
